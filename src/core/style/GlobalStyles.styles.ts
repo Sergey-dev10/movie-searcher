@@ -1,4 +1,4 @@
-import {createGlobalStyle} from "styled-components";
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -11,6 +11,9 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    font-family: Yantramanav,Helvetica,Arial,sans-serif;
+    color: #ffffff;
     line-height: 1.55;
+    background-color: #0b0c0e;
   }
 `;
