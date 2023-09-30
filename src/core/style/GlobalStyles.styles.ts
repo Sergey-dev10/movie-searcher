@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
+    padding-top: 4.5rem;
     font-family: Yantramanav,Helvetica,Arial,sans-serif;
     color: #ffffff;
     line-height: 1.55;
