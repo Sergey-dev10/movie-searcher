@@ -7,33 +7,30 @@ import {
   FETCH_UPCOMING_MOVIES,
   FETCH_TOP_RATED_MOVIES,
 } from "../../constants/actionType.ts";
-import { getUpcomingMovies, getTopRatedMovies } from "../../core/api/movie";
+import {
+  getUpcomingMovies,
+  getTopRatedMovies,
+} from "../../core/api/movie/api.ts";
 import { SagaIterator } from "redux-saga";
 
 interface movieWorkerProps {
   type: string;
-  payload: {
-    page: number;
-  };
+  payload: number;
 }
-function* movieWorker({
-  type,
-  payload: { page },
-}: movieWorkerProps): SagaIterator {
+function* movieWorker({ type, payload }: movieWorkerProps): SagaIterator {
   switch (type) {
     case FETCH_UPCOMING_MOVIES:
       try {
-        const upcomingMovies = yield call(getUpcomingMovies, page);
-        console.log(upcomingMovies);
-        yield put(fetchUpcomingMoviesSuccess(upcomingMovies.results));
+        const upcomingMovies = yield call(getUpcomingMovies, payload);
+        yield put(fetchUpcomingMoviesSuccess(upcomingMovies));
       } catch (error) {
         console.error(error);
       }
       break;
     case FETCH_TOP_RATED_MOVIES:
       try {
-        const topRatedMovies = yield call(getTopRatedMovies, page);
-        yield put(fetchTopRatedMoviesSuccess(topRatedMovies.results));
+        const topRatedMovies = yield call(getTopRatedMovies, payload);
+        yield put(fetchTopRatedMoviesSuccess(topRatedMovies));
       } catch (error) {
         console.error(error);
       }

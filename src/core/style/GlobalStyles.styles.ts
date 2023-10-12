@@ -1,4 +1,5 @@
 import { createGlobalStyle } from "styled-components";
+import styled from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
   * {
@@ -17,4 +18,11 @@ export const GlobalStyles = createGlobalStyle`
     line-height: 1.55;
     background-color: #0b0c0e;
   }
+`;
+
+export const ButtonWrapper = styled.button`
+  background-color: #0086e0;
+  border: 1px solid #0086e0;
+  color: #ffffff;
+  font-size: 1rem;
 `;

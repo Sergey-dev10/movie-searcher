@@ -1,11 +1,15 @@
+import { useEffect } from "react";
 import { useAppDispatch } from "../../hooks";
 import {
   fetchUpcomingMovies,
   fetchTopRatedMovies,
 } from "../../modules/movie/actions.ts";
-import { useEffect } from "react";
+import { UpcomingSection } from "./components/UpcomingSection";
+import {TopRatedSection} from "./components/TopRatedSection";
+
 export const Home = () => {
   const dispatch = useAppDispatch();
+
   useEffect(() => {
     dispatch(fetchUpcomingMovies());
     dispatch(fetchTopRatedMovies());
@@ -13,8 +17,8 @@ export const Home = () => {
 
   return (
     <>
-      <h2>Upcoming Movies</h2>
-      <h2>Top Rated Movies</h2>
+      <UpcomingSection />
+      <TopRatedSection />
     </>
   );
 };

@@ -7,6 +7,8 @@ import { TVShows } from "../../pages/TVShows";
 import { People } from "../../pages/People";
 import { Genres } from "../../pages/Genres";
 import { Favorites } from "../../pages/Favorites";
+import {TopRated} from "../../pages/TopRated";
+import {Upcoming} from "../../pages/Upcoming";
 
 export const router = createBrowserRouter([
   {
@@ -40,6 +42,14 @@ export const router = createBrowserRouter([
       {
         path: "favorites",
         element: <Favorites />,
+      },
+      {
+        path: "top_rated",
+        element: <TopRated />,
+      },
+      {
+        path: "upcoming",
+        element: <Upcoming />,
       },
     ],
   },

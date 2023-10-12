@@ -1,12 +1,15 @@
-import {Outlet} from "react-router";
+import { Outlet } from "react-router";
 import { Header } from "../ui/Header";
+import Container from "@mui/material/Container";
 export const Layout = () => {
   return (
     <>
       <Header />
-       <main>
-           <Outlet />
-       </main>
+      <main>
+        <Container maxWidth="lg">
+          <Outlet />
+        </Container>
+      </main>
     </>
   );
 };
