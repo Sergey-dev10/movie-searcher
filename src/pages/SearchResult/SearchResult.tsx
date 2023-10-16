@@ -18,8 +18,11 @@ import {
 } from "../../modules/search/selectors.ts";
 import { Pagination } from "../../ui/Pagination";
 import { Movies } from "../../ui/Movies";
-import {People} from "../../ui/People";
+import { People } from "../../ui/People";
 import { searchMovies } from "../../modules/search/actions.ts";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
+import { formatNumberWithCommas } from "../../utils/formatNumberWithCommas.ts";
+
 export const SearchResult = () => {
   const dispatch = useAppDispatch();
 
@@ -29,14 +32,15 @@ export const SearchResult = () => {
   const query = useAppSelector(selectSearchQuery);
   const movies = useAppSelector(selectSearchedMovies);
   const moviesTotalPages = useAppSelector(selectSearchedMoviesTotalPages);
-  const moviesTotalResults = useAppSelector(selectSearchedMoviesTotalResults);
+  const moviesTotalResults = useAppSelector(selectSearchedMoviesTotalResults) ?? 0;
   const shows = useAppSelector(selectSearchedShows);
   const showsTotalPages = useAppSelector(selectSearchedShowsTotalPages);
-  const showsTotalResults = useAppSelector(selectSearchedShowsTotalResults);
+  const showsTotalResults = useAppSelector(selectSearchedShowsTotalResults) ?? 0;
   const people = useAppSelector(selectSearchedPeople);
   const peopleTotalPages = useAppSelector(selectSearchedPeopleTotalPages);
-  const peopleTotalResults = useAppSelector(selectSearchedPeopleTotalResults);
-  const totalResults = moviesTotalResults + showsTotalResults + peopleTotalResults;
+  const peopleTotalResults = useAppSelector(selectSearchedPeopleTotalResults) ?? 0;
+  const totalResults =
+    moviesTotalResults + showsTotalResults + peopleTotalResults;
 
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
@@ -55,7 +59,7 @@ export const SearchResult = () => {
   return (
     <div>
       <h1>Search Result</h1>
-      {totalResults ? <span>{totalResults} Movies</span> : ""}
+      <TotalResult totalResults={totalResults} />
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
@@ -63,9 +67,18 @@ export const SearchResult = () => {
               onChange={handleChange}
               aria-label="lab API tabs example"
             >
-              <TabWrapper label="Movies" value="1" />
-              <TabWrapper label="TV Shows" value="2" />
-              <TabWrapper label="People" value="3" />
+              <TabWrapper
+                label={`Movies ${formatNumberWithCommas(moviesTotalResults)}`}
+                value="1"
+              />
+              <TabWrapper
+                label={`TV Shows ${formatNumberWithCommas(showsTotalResults)}`}
+                value="2"
+              />
+              <TabWrapper
+                label={`People ${formatNumberWithCommas(peopleTotalResults)}`}
+                value="3"
+              />
             </TabListWrapper>
           </Box>
           <TabPanel value="1">
@@ -84,10 +97,13 @@ export const SearchResult = () => {
               onHandleChangePage={handleChangePage}
             />
           </TabPanel>
-
           <TabPanel value="3">
             <People people={people} />
-            <Pagination page={page} totalPages={peopleTotalPages} onHandleChangePage={handleChangePage}/>
+            <Pagination
+              page={page}
+              totalPages={peopleTotalPages}
+              onHandleChangePage={handleChangePage}
+            />
           </TabPanel>
         </TabContext>
       </Box>
