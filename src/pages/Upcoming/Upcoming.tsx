@@ -19,7 +19,7 @@ export const Upcoming = () => {
   const totalResults = useAppSelector(selectUpcomingMoviesTotalResults);
   const [page, setPage] = useState(1);
 
-  const handleChangePage = (
+    const handleChangePage = (
     event: React.ChangeEvent<unknown>,
     value: number,
   ) => {

@@ -11,10 +11,10 @@ export const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    fetchUpcomingMoviesSuccess: (state, action: PayloadAction<UpcomingMovies>) => {
+    fetchUpcomingMoviesSuccess(state, action: PayloadAction<UpcomingMovies>) {
       state.upcomingMovies = action.payload;
     },
-    fetchTopRatedMoviesSuccess: (state, action: PayloadAction<TopRatedMovies>) => {
+    fetchTopRatedMoviesSuccess(state, action: PayloadAction<TopRatedMovies>) {
       state.topRatedMovies = action.payload;
     },
   },

@@ -3,16 +3,22 @@ import { combineReducers } from "@reduxjs/toolkit";
 import createSagaMiddleware from "redux-saga";
 import { all } from "redux-saga/effects";
 import movieReducer from "./movie/slice";
+import searchReducer from "./search/slice";
 import { movieWatcher } from "./movie/saga";
+import { searchWatcher } from "./search/saga";
+import peopleReducer from "./people/slice";
+import { peopleWatcher } from "./people/saga";
 
 export const rootReducer = combineReducers({
   movie: movieReducer,
+  search: searchReducer,
+  people: peopleReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
-  yield all([movieWatcher()]);
+  yield all([movieWatcher(), searchWatcher(), peopleWatcher()]);
 }
 
 export const store = configureStore({

@@ -4,11 +4,12 @@ import { Home } from "../../pages/Home";
 import { Trending } from "../../pages/Trending";
 import { Discover } from "../../pages/Discover";
 import { TVShows } from "../../pages/TVShows";
-import { People } from "../../pages/People";
+import { PeoplePopular } from "../../pages/PeoplePopular";
 import { Genres } from "../../pages/Genres";
 import { Favorites } from "../../pages/Favorites";
-import {TopRated} from "../../pages/TopRated";
-import {Upcoming} from "../../pages/Upcoming";
+import { TopRated } from "../../pages/TopRated";
+import { Upcoming } from "../../pages/Upcoming";
+import {SearchResult} from "../../pages/SearchResult";
 
 export const router = createBrowserRouter([
   {
@@ -33,7 +34,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "people",
-        element: <People />,
+        element: <PeoplePopular />,
       },
       {
         path: "genres",
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "upcoming",
         element: <Upcoming />,
+      },
+      {
+        path: "search/:query",
+        element: <SearchResult />,
       },
     ],
   },
