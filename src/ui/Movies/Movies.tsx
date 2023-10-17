@@ -10,7 +10,7 @@ export const Movies = ({movies}: MoviesProps) => {
     return (
         <Grid container spacing={2} sx={{ mt: 5 }}>
             {movies
-                ? movies.slice(0, 10).map((movie: Movie) => (
+                ? movies.map((movie: Movie) => (
                     <Grid
                         item
                         xs={12}

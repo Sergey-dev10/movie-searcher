@@ -10,7 +10,7 @@ export const People = ({ people }: PeopleProps) => {
   return (
     <Grid container spacing={2} sx={{ mt: 5 }}>
       {people
-        ? people.slice(0, 10).map((person: Person) => (
+        ? people.map((person: Person) => (
             <Grid
               item
               xs={12}
