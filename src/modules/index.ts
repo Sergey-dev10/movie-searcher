@@ -10,11 +10,15 @@ import peopleReducer from "./people/slice";
 import { peopleWatcher } from "./people/saga";
 import trendingReducer from "./trending/slice";
 import { trendingWatcher } from "./trending/saga";
+import discoverReducer from "./discover/slice";
+import { discoverWatcher } from "./discover/saga";
+
 export const rootReducer = combineReducers({
   movie: movieReducer,
   search: searchReducer,
   people: peopleReducer,
   trending: trendingReducer,
+  discover: discoverReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -25,6 +29,7 @@ function* rootSaga() {
     searchWatcher(),
     peopleWatcher(),
     trendingWatcher(),
+    discoverWatcher(),
   ]);
 }
 

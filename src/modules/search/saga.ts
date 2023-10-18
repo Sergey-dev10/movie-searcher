@@ -3,13 +3,13 @@ import {put, call, takeEvery} from "redux-saga/effects";
 import {searchMovies, searchShows, searchPeople} from "../../core/api/search/api.ts";
 import {searchMoviesSuccess} from "./slice.ts";
 import {SEARCH_MOVIES} from "../../constants/actionType.ts";
-interface searchWorkerProps {
+interface SearchWorkerProps {
     payload: {
         query: string;
         page: number;
     };
 }
-function* searchWorker({payload: {query, page}}: searchWorkerProps): SagaIterator {
+function* searchWorker({payload: {query, page}}: SearchWorkerProps): SagaIterator {
     try {
         const movies = yield call(searchMovies, query, page);
         const shows = yield call(searchShows, query, page);
