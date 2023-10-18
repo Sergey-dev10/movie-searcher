@@ -1,15 +1,9 @@
 export interface MovieState {
-  upcomingMovies?: UpcomingMovies | null;
-  topRatedMovies?: TopRatedMovies | null;
+  upcomingMovies?: Movies | null;
+  topRatedMovies?: Movies | null;
 }
 
-export interface UpcomingMovies {
-  results: Movie[];
-  total_pages: number;
-  total_results: number;
-}
-
-export interface TopRatedMovies {
+export interface Movies {
   results: Movie[];
   total_pages: number;
   total_results: number;

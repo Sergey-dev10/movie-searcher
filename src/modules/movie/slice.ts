@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MovieState, UpcomingMovies, TopRatedMovies } from "./types";
+import { MovieState, Movies } from "./types";
 
 const initialState: MovieState = {
   upcomingMovies: null,
@@ -11,10 +11,10 @@ export const movieSlice = createSlice({
   name: "movie",
   initialState,
   reducers: {
-    fetchUpcomingMoviesSuccess(state, action: PayloadAction<UpcomingMovies>) {
+    fetchUpcomingMoviesSuccess(state, action: PayloadAction<Movies>) {
       state.upcomingMovies = action.payload;
     },
-    fetchTopRatedMoviesSuccess(state, action: PayloadAction<TopRatedMovies>) {
+    fetchTopRatedMoviesSuccess(state, action: PayloadAction<Movies>) {
       state.topRatedMovies = action.payload;
     },
   },

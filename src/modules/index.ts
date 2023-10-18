@@ -8,17 +8,24 @@ import { movieWatcher } from "./movie/saga";
 import { searchWatcher } from "./search/saga";
 import peopleReducer from "./people/slice";
 import { peopleWatcher } from "./people/saga";
-
+import trendingReducer from "./trending/slice";
+import { trendingWatcher } from "./trending/saga";
 export const rootReducer = combineReducers({
   movie: movieReducer,
   search: searchReducer,
   people: peopleReducer,
+  trending: trendingReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
 
 function* rootSaga() {
-  yield all([movieWatcher(), searchWatcher(), peopleWatcher()]);
+  yield all([
+    movieWatcher(),
+    searchWatcher(),
+    peopleWatcher(),
+    trendingWatcher(),
+  ]);
 }
 
 export const store = configureStore({

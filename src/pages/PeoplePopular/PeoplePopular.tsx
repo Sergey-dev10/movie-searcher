@@ -13,6 +13,7 @@ export const PeoplePopular = () => {
   const totalPages = useAppSelector(selectTotalPages);
   const totalResults = useAppSelector(selectTotalResults);
 
+  console.log(selectPeople);
   const people = useAppSelector(selectPeople);
 
   const [page, setPage] = useState(1);
