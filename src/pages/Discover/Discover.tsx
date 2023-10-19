@@ -68,10 +68,15 @@ export const Discover = () => {
     dispatch(fetchDiscoveredMovies(page, year, genre, sortBy));
   }, [page, year, genre, sortBy]);
 
+  useEffect(() => {
+    setPage(1);
+    console.log(page);
+  }, [year, genre, sortBy]);
+
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
       <h2>Discover Movies</h2>
-      {totalResults ? <span>{totalResults} Movies</span> : ""}
+       <span>{totalResults && !Array.isArray(totalResults) ? totalResults : 0} Movies</span>
       <Box
         sx={{
           display: "flex",

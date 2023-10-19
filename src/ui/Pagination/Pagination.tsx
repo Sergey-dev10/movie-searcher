@@ -22,6 +22,7 @@ export const Pagination = ({
         </span>
       </Box>
       <PaginationWrapper
+        page={page}
         count={totalPages}
         variant="outlined"
         shape="rounded"
