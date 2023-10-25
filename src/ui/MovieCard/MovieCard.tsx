@@ -11,6 +11,7 @@ import { MOVIE_POSTER_URL } from "../../constants/baseURL.ts";
 import { Rating } from "./components/Rating";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { ratingToFloat } from "../../utils/ratingToFloat.ts";
+import {releaseDateToYear} from "../../utils/releaseDateToYear.ts";
 
 interface MovieCardProps {
   title: string;
@@ -37,7 +38,7 @@ export const MovieCard = ({
           </Title>
           <Info>
             <ReleaseDate component="span">
-              {release_date ? release_date : first_air_date}
+              {release_date ? releaseDateToYear(release_date) : (first_air_date ? releaseDateToYear(first_air_date) : '')}
             </ReleaseDate>
             <FavoriteIcon />
           </Info>
