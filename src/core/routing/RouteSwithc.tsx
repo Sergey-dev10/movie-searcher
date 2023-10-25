@@ -3,7 +3,7 @@ import { Layout } from "../../layout/Layout";
 import { Home } from "../../pages/Home";
 import { Trending } from "../../pages/Trending";
 import { Discover } from "../../pages/Discover";
-import { TVShows } from "../../pages/TVShows";
+import { Shows } from "../../pages/Shows";
 import { PeoplePopular } from "../../pages/PeoplePopular";
 import { Genres } from "../../pages/Genres";
 import { Favorites } from "../../pages/Favorites";
@@ -29,8 +29,8 @@ export const router = createBrowserRouter([
         element: <Discover />,
       },
       {
-        path: "tvshows",
-        element: <TVShows />,
+        path: "shows",
+        element: <Shows />,
       },
       {
         path: "people",

@@ -1,6 +1,5 @@
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
-import { Movie } from "../../modules/movie/types.ts";
 import {
   CardWrapper,
   Poster,
@@ -11,14 +10,22 @@ import {
 import { MOVIE_POSTER_URL } from "../../constants/baseURL.ts";
 import { Rating } from "./components/Rating";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import {ratingToFloat} from "../../utils/ratingToFloat.ts";
+import { ratingToFloat } from "../../utils/ratingToFloat.ts";
 
+interface MovieCardProps {
+  title: string;
+  poster_path: string;
+  release_date?: string;
+  first_air_date?: string;
+  vote_average: number;
+}
 export const MovieCard = ({
   title,
   poster_path,
   release_date,
+  first_air_date,
   vote_average,
-}: Movie) => {
+}: MovieCardProps) => {
   return (
     <CardWrapper>
       <CardActionArea>
@@ -29,7 +36,9 @@ export const MovieCard = ({
             {title}
           </Title>
           <Info>
-            <ReleaseDate component="span">{release_date}</ReleaseDate>
+            <ReleaseDate component="span">
+              {release_date ? release_date : first_air_date}
+            </ReleaseDate>
             <FavoriteIcon />
           </Info>
         </CardContent>

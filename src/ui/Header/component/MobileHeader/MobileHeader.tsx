@@ -4,6 +4,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { nanoid } from "@reduxjs/toolkit";
 import Typography from "@mui/material/Typography";
+import { Link } from "react-router-dom";
 import { MobileMenuWrapper, MobileMenuItem } from "./MobileHeader.styles.ts";
 interface MobileHeaderProps {
   anchorElNav: null | HTMLElement;
@@ -52,25 +53,60 @@ export const MobileHeader = ({
           display: { xs: "block", md: "none" },
         }}
       >
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"/"}
+          onClick={onHandleClose}
+        >
           <Typography>Home</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"trending"}
+          onClick={onHandleClose}
+        >
           <Typography>Trending</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"discover"}
+          onClick={onHandleClose}
+        >
           <Typography>Discover</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"shows"}
+          onClick={onHandleClose}
+        >
           <Typography>TV Shows</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"people"}
+          onClick={onHandleClose}
+        >
           <Typography>People</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"genres"}
+          onClick={onHandleClose}
+        >
           <Typography>Genres</Typography>
         </MobileMenuItem>
-        <MobileMenuItem key={nanoid()} onClick={onHandleClose}>
+        <MobileMenuItem
+          key={nanoid()}
+          component={Link}
+          to={"favorites"}
+          onClick={onHandleClose}
+        >
           <Typography>Favorites</Typography>
         </MobileMenuItem>
       </MobileMenuWrapper>

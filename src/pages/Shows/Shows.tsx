@@ -3,26 +3,29 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import {
-  selectDiscoveredMovies,
-  selectDiscoveredMoviesTotalPages,
-  selectDiscoveredMoviesTotalResults,
-} from "../../modules/discover/selectors.ts";
-import { fetchDiscoveredMovies } from "../../modules/discover/actions.ts";
+  selectShows,
+  selectShowsTotalPages,
+  selectShowsTotalResults,
+} from "../../modules/show/selectors.ts";
+import { fetchShows } from "../../modules/show/actions.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
-import { Year, Genre, Sort } from "./Discover.styles.ts";
-import { yearList, genres, sortMethods } from "../../constants/filterConstants.ts";
+import { Year, Genre, Sort } from "../Discover/Discover.styles.ts";
+import {
+  yearList,
+  genresShows,
+  sortMethods,
+} from "../../constants/filterConstants.ts";
 
-export const Discover = () => {
+export const Shows = () => {
   const dispatch = useAppDispatch();
-  const discoveredMovies = useAppSelector(selectDiscoveredMovies);
-  const totalPages = useAppSelector(selectDiscoveredMoviesTotalPages);
-  const totalResults = useAppSelector(selectDiscoveredMoviesTotalResults);
+  const shows = useAppSelector(selectShows);
+  const totalPages = useAppSelector(selectShowsTotalPages);
+  const totalResults = useAppSelector(selectShowsTotalResults);
   const [page, setPage] = useState(1);
   const [year, setYear] = useState(0);
   const [genre, setGenre] = useState(0);
   const [sortBy, setSortBy] = useState("");
-
 
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
@@ -65,7 +68,7 @@ export const Discover = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchDiscoveredMovies(page, year, genre, sortBy));
+    dispatch(fetchShows(page, year, genre, sortBy));
   }, [page, year, genre, sortBy]);
 
   useEffect(() => {
@@ -74,8 +77,10 @@ export const Discover = () => {
 
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
-      <h2>Discover Movies</h2>
-       <span>{totalResults && !Array.isArray(totalResults) ? totalResults : 0} Movies</span>
+      <h2>TV Shows</h2>
+      <span>
+        {totalResults && !Array.isArray(totalResults) ? totalResults : 0} Movies
+      </span>
       <Box
         sx={{
           display: "flex",
@@ -102,7 +107,7 @@ export const Discover = () => {
         <Genre
           disablePortal
           id="combo-box-demo"
-          options={genres}
+          options={genresShows}
           isOptionEqualToValue={(
             option: { label: string; value: number },
             value: { label: string; value: number },
@@ -127,7 +132,7 @@ export const Discover = () => {
         />
       </Box>
 
-      <Movies movies={discoveredMovies} />
+      <Movies movies={shows} />
       <Pagination
         page={page}
         totalPages={totalPages}

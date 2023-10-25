@@ -4,3 +4,4 @@ export const SEARCH_MOVIES = "search/searchMovies";
 export const FETCH_PEOPLE = "people/fetchPeople";
 export const FETCH_TRENDING_MOVIES = "trending/fetchTrendingMovies";
 export const FETCH_DISCOVER_MOVIES = "discover/fetchDiscoverMovies";
+export const FETCH_DISCOVER_SHOWS = "discover/fetchDiscoverShows";

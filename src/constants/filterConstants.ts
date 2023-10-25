@@ -23,6 +23,24 @@ export const genres = [
     { label: "Western", value: 37 },
 ];
 
+export const genresShows = [
+    { label: "Action & Adventure", value: 10759 },
+    { label: "Animation", value: 16 },
+    { label: "Comedy", value: 35 },
+    { label: "Crime", value: 80 },
+    { label: "Documentary", value: 99 },
+    { label: "Drama", value: 18 },
+    { label: "Family", value: 10751 },
+    { label: "Kids", value: 10762 },
+    { label: "Mystery", value: 9648 },
+    { label: "News", value: 10763 },
+    { label: "Reality", value: 10764 },
+    { label: "Sci-Fi & Fantasy", value: 10765 },
+    { label: "Soap", value: 10766 },
+    { label: "Talk", value: 10767 },
+    { label: "War & Politics", value: 10768 },
+    { label: "Western", value: 37 },
+];
 export const sortMethods = [
     { label: "Popularity Descending", value: "popularity.desc" },
     { label: "Popularity Ascending", value: "popularity.asc" },

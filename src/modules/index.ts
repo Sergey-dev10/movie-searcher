@@ -12,6 +12,8 @@ import trendingReducer from "./trending/slice";
 import { trendingWatcher } from "./trending/saga";
 import discoverReducer from "./discover/slice";
 import { discoverWatcher } from "./discover/saga";
+import showReducer from "./show/slice";
+import {showWatcher} from "./show/saga.ts";
 
 export const rootReducer = combineReducers({
   movie: movieReducer,
@@ -19,6 +21,7 @@ export const rootReducer = combineReducers({
   people: peopleReducer,
   trending: trendingReducer,
   discover: discoverReducer,
+  show: showReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -30,6 +33,7 @@ function* rootSaga() {
     peopleWatcher(),
     trendingWatcher(),
     discoverWatcher(),
+    showWatcher(),
   ]);
 }
 

@@ -34,7 +34,7 @@ export const DesktopHeader = () => {
           key={nanoid()}
           sx={{ my: 2, color: "white", display: "block" }}
           component={Link}
-          to={"tvshows"}
+          to={"shows"}
         >
           TV Shows
         </ButtonWrapper>
