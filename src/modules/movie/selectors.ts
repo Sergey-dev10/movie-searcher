@@ -6,3 +6,4 @@ export const selectUpcomingMoviesTotalResults = ({movie}: RootState) => movie.up
 export const selectTopRatedMovies = ({movie}: RootState) => movie.topRatedMovies?.results;
 export const selectTopRatedMoviesTotalPages = ({movie}: RootState) => movie.topRatedMovies?.total_pages;
 export const selectTopRatedMoviesTotalResults = ({movie}: RootState) => movie.topRatedMovies?.total_results;
+export const selectMovie = ({movie}: RootState) => movie.movie;

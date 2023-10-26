@@ -1,10 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { PayloadAction } from "@reduxjs/toolkit";
-import { MovieState, Movies } from "./types";
+import { MovieState, Movies, MovieDetails } from "./types";
 
 const initialState: MovieState = {
   upcomingMovies: null,
   topRatedMovies: null,
+  movie: null,
 };
 
 export const movieSlice = createSlice({
@@ -17,9 +18,15 @@ export const movieSlice = createSlice({
     fetchTopRatedMoviesSuccess(state, action: PayloadAction<Movies>) {
       state.topRatedMovies = action.payload;
     },
+    fetchMovieSuccess(state, action: PayloadAction<MovieDetails>) {
+      state.movie = action.payload;
+    },
   },
 });
 
-export const { fetchUpcomingMoviesSuccess, fetchTopRatedMoviesSuccess } =
-  movieSlice.actions;
+export const {
+  fetchUpcomingMoviesSuccess,
+  fetchTopRatedMoviesSuccess,
+  fetchMovieSuccess,
+} = movieSlice.actions;
 export default movieSlice.reducer;

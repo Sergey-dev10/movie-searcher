@@ -2,14 +2,17 @@ import { put, call, takeEvery } from "redux-saga/effects";
 import {
   fetchUpcomingMoviesSuccess,
   fetchTopRatedMoviesSuccess,
+  fetchMovieSuccess,
 } from "./slice.ts";
 import {
   FETCH_UPCOMING_MOVIES,
   FETCH_TOP_RATED_MOVIES,
+  FETCH_MOVIE,
 } from "../../constants/actionType.ts";
 import {
   getUpcomingMovies,
   getTopRatedMovies,
+  getMovie,
 } from "../../core/api/movie/api.ts";
 import { SagaIterator } from "redux-saga";
 
@@ -35,9 +38,17 @@ function* movieWorker({ type, payload }: movieWorkerProps): SagaIterator {
         console.error(error);
       }
       break;
+      case FETCH_MOVIE:
+        try {
+          const movie = yield call(getMovie, payload);
+          yield put(fetchMovieSuccess(movie));
+        } catch (error) {
+            console.error(error);
+        }
+      break;
   }
 }
 
 export function* movieWatcher() {
-  yield takeEvery([FETCH_UPCOMING_MOVIES, FETCH_TOP_RATED_MOVIES], movieWorker);
+  yield takeEvery([FETCH_UPCOMING_MOVIES, FETCH_TOP_RATED_MOVIES, FETCH_MOVIE], movieWorker);
 }

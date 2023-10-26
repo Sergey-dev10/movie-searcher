@@ -2,6 +2,7 @@ import axios from "axios";
 import {
   UPCOMING_MOVIES_URL,
   TOP_RATED_MOVIES_URL,
+  MOVIE_URL,
 } from "../../../constants/baseURL";
 export const getUpcomingMovies = (page: number) => {
   return axios
@@ -33,4 +34,17 @@ export const getTopRatedMovies = (page: number) => {
     .catch((error) => {
       console.error(error);
     });
+};
+
+export const getMovie = (id: number) => {
+    return axios
+        .get(`${MOVIE_URL}/${id}`, {
+            headers: {
+                Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            console.error(error);
+        });
 };

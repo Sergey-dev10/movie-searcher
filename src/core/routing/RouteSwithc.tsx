@@ -10,6 +10,7 @@ import { Favorites } from "../../pages/Favorites";
 import { TopRated } from "../../pages/TopRated";
 import { Upcoming } from "../../pages/Upcoming";
 import {SearchResult} from "../../pages/SearchResult";
+import {Movie} from "../../pages/Movie"
 
 export const router = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const router = createBrowserRouter([
       {
         path: "search/:query",
         element: <SearchResult />,
+      },
+      {
+        path: "movie/:id",
+        element: <Movie />,
       },
     ],
   },

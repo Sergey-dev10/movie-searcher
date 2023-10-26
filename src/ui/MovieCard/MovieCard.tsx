@@ -1,5 +1,6 @@
 import CardContent from "@mui/material/CardContent";
 import { CardActionArea } from "@mui/material";
+import { Link } from "react-router-dom";
 import {
   CardWrapper,
   Poster,
@@ -11,9 +12,10 @@ import { MOVIE_POSTER_URL } from "../../constants/baseURL.ts";
 import { Rating } from "./components/Rating";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { ratingToFloat } from "../../utils/ratingToFloat.ts";
-import {releaseDateToYear} from "../../utils/releaseDateToYear.ts";
+import { releaseDateToYear } from "../../utils/releaseDateToYear.ts";
 
 interface MovieCardProps {
+  id: number;
   title: string;
   poster_path: string;
   release_date?: string;
@@ -21,6 +23,7 @@ interface MovieCardProps {
   vote_average: number;
 }
 export const MovieCard = ({
+  id,
   title,
   poster_path,
   release_date,
@@ -29,21 +32,26 @@ export const MovieCard = ({
 }: MovieCardProps) => {
   return (
     <CardWrapper>
-      <CardActionArea>
-        <Rating rating={ratingToFloat(vote_average)} />
+      <Rating rating={ratingToFloat(vote_average)} />
+      <CardActionArea component={Link} to={`movie/${id}`}>
         <Poster component="img" image={`${MOVIE_POSTER_URL}${poster_path}`} />
-        <CardContent>
-          <Title gutterBottom variant="h4" component="div">
-            {title}
-          </Title>
-          <Info>
-            <ReleaseDate component="span">
-              {release_date ? releaseDateToYear(release_date) : (first_air_date ? releaseDateToYear(first_air_date) : '')}
-            </ReleaseDate>
-            <FavoriteIcon />
-          </Info>
-        </CardContent>
       </CardActionArea>
+
+      <CardContent>
+        <Title gutterBottom variant="h4" component="div">
+          {title}
+        </Title>
+        <Info>
+          <ReleaseDate component="span">
+            {release_date
+              ? releaseDateToYear(release_date)
+              : first_air_date
+              ? releaseDateToYear(first_air_date)
+              : ""}
+          </ReleaseDate>
+          <FavoriteIcon sx={{ cursor: "pointer" }} />
+        </Info>
+      </CardContent>
     </CardWrapper>
   );
 };
