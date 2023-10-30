@@ -32,8 +32,8 @@ export const MovieCard = ({
 }: MovieCardProps) => {
   return (
     <CardWrapper>
-      <Rating rating={ratingToFloat(vote_average)} />
-      <CardActionArea component={Link} to={`movie/${id}`}>
+      <CardActionArea component={Link} to={`/movie/${id}`}>
+        <Rating rating={ratingToFloat(vote_average)} />
         <Poster component="img" image={`${MOVIE_POSTER_URL}${poster_path}`} />
       </CardActionArea>
 

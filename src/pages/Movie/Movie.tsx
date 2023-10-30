@@ -15,6 +15,7 @@ import {
 } from "./Movie.styles.ts";
 import { POSTER_IMG_URL } from "../../constants/baseURL.ts";
 import { releaseDateToYear } from "../../utils/releaseDateToYear.ts";
+import {ratingToFloat} from "../../utils/ratingToFloat.ts";
 
 export const Movie = () => {
   const dispatch = useAppDispatch();
@@ -47,7 +48,7 @@ export const Movie = () => {
         <MovieTitle>{`${title} (${releaseDate})`}</MovieTitle>
         <MovieRating>
           <StarRateIcon sx={{ color: "yellow" }} />
-          {`${voteAverage} Rating`}
+          {`${ratingToFloat(voteAverage)} Rating`}
         </MovieRating>
         <Genres>
           {genres.map((genre, index) => (

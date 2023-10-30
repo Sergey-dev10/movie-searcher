@@ -16,8 +16,6 @@ export const Trending = () => {
   const totalResults = useAppSelector(selectTrendingMoviesTotalResults);
   const [page, setPage] = useState(1);
 
-  console.log(selectTrendingMovies);
-  console.log(trendingMovies);
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
     value: number,
