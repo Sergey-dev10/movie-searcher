@@ -12,7 +12,6 @@ const trendingSlice = createSlice({
     initialState,
     reducers: {
         fetchTrendingMoviesSuccess: (state, action: PayloadAction<Movies>) => {
-            console.log(action.payload);
             state.trending = action.payload;
         }
     }

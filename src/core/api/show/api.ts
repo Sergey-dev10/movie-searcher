@@ -1,5 +1,5 @@
 import axios from "axios";
-import { DISCOVER_SHOWS_URL } from "../../../constants/baseURL.ts";
+import {DISCOVER_SHOWS_URL, SHOW_URL} from "../../../constants/baseURL.ts";
 
 export const fetchShows = (
     page: number,
@@ -15,6 +15,19 @@ export const fetchShows = (
                 ...(genre && { with_genres: genre }),
                 ...(sortBy && { sort_by: sortBy }),
             },
+            headers: {
+                Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
+            },
+        })
+        .then((response) => response.data)
+        .catch((error) => {
+            console.error(error);
+        });
+};
+
+export const fetchShow = (id: number) => {
+    return axios
+        .get(`${SHOW_URL}/${id}`, {
             headers: {
                 Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
             },

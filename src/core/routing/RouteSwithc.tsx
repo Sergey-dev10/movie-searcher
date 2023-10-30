@@ -10,7 +10,8 @@ import { Favorites } from "../../pages/Favorites";
 import { TopRated } from "../../pages/TopRated";
 import { Upcoming } from "../../pages/Upcoming";
 import {SearchResult} from "../../pages/SearchResult";
-import {Movie} from "../../pages/Movie"
+import {Movie} from "../../pages/Movie";
+import {Show} from "../../pages/Show";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,9 @@ export const router = createBrowserRouter([
       {
         path: "movie/:id",
         element: <Movie />,
+      },{
+        path: "show/:id",
+        element: <Show />,
       },
     ],
   },
