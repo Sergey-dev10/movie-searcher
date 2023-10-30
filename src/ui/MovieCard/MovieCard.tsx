@@ -16,7 +16,8 @@ import { releaseDateToYear } from "../../utils/releaseDateToYear.ts";
 
 interface MovieCardProps {
   id: number;
-  title: string;
+  name?: string;
+  title?: string;
   poster_path: string;
   release_date?: string;
   first_air_date?: string;
@@ -24,6 +25,7 @@ interface MovieCardProps {
 }
 export const MovieCard = ({
   id,
+  name,
   title,
   poster_path,
   release_date,
@@ -39,7 +41,7 @@ export const MovieCard = ({
 
       <CardContent>
         <Title gutterBottom variant="h4" component="div">
-          {title}
+          {title ? title : name}
         </Title>
         <Info>
           <ReleaseDate component="span">

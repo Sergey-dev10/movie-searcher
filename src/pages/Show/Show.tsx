@@ -21,7 +21,7 @@ export const Show = () => {
   const dispatch = useAppDispatch();
   const show = useAppSelector(selectShow);
   const match = useMatch("/show/:id");
-  const title = show ? show.title : "";
+  const title = show ? show.name : "";
   const posterPath = show ? show.poster_path : "";
   const overview = show ? show.overview : "";
   const voteAverage = show ? show.vote_average : 0;
@@ -58,8 +58,14 @@ export const Show = () => {
             </span>
           ))}
         </Genres>
-        <h4>Overview</h4>
-        <MovieOverview>{overview}</MovieOverview>
+        {overview ? (
+          <>
+            <h4>Overview</h4>
+            <MovieOverview>{overview}</MovieOverview>
+          </>
+        ) : (
+          ""
+        )}
         <Button variant="outlined">Favorite</Button>
       </MovieDetails>
     </Box>

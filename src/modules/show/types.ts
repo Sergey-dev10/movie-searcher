@@ -5,6 +5,7 @@ export interface ShowState {
 }
 
 export interface Show extends Movie {
+  name: string;
   first_air_date: string;
 }
 
