@@ -12,6 +12,7 @@ import { Upcoming } from "../../pages/Upcoming";
 import {SearchResult} from "../../pages/SearchResult";
 import {Movie} from "../../pages/Movie";
 import {Show} from "../../pages/Show";
+import {Genre} from "../../pages/Genre/";
 
 export const router = createBrowserRouter([
   {
@@ -61,9 +62,14 @@ export const router = createBrowserRouter([
       {
         path: "movie/:id",
         element: <Movie />,
-      },{
+      },
+      {
         path: "show/:id",
         element: <Show />,
+      },
+      {
+        path: "genres/:name/:id",
+        element: <Genre />,
       },
     ],
   },

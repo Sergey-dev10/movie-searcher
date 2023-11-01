@@ -7,3 +7,5 @@ export const FETCH_DISCOVER_MOVIES = "discover/fetchDiscoverMovies";
 export const FETCH_DISCOVER_SHOWS = "discover/fetchDiscoverShows";
 export const FETCH_MOVIE = "movie/fetchMovie";
 export const FETCH_SHOW = "show/fetchShow";
+export const FETCH_GENRES = "genre/fetchGenres";
+export const FETCH_MOVIES_BY_GENRE = "genre/fetchMoviesByGenre";

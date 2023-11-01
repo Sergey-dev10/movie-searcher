@@ -13,8 +13,9 @@ import { trendingWatcher } from "./trending/saga";
 import discoverReducer from "./discover/slice";
 import { discoverWatcher } from "./discover/saga";
 import showReducer from "./show/slice";
-import {showWatcher} from "./show/saga.ts";
-
+import { showWatcher } from "./show/saga.ts";
+import genreReducer from "./genre/slice";
+import { genreWatcher } from "./genre/saga.ts";
 export const rootReducer = combineReducers({
   movie: movieReducer,
   search: searchReducer,
@@ -22,6 +23,7 @@ export const rootReducer = combineReducers({
   trending: trendingReducer,
   discover: discoverReducer,
   show: showReducer,
+  genre: genreReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -34,6 +36,7 @@ function* rootSaga() {
     trendingWatcher(),
     discoverWatcher(),
     showWatcher(),
+    genreWatcher(),
   ]);
 }
 
