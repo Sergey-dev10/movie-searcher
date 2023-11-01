@@ -16,6 +16,7 @@ import showReducer from "./show/slice";
 import { showWatcher } from "./show/saga.ts";
 import genreReducer from "./genre/slice";
 import { genreWatcher } from "./genre/saga.ts";
+import favoriteReducer from "./favorite/slice";
 export const rootReducer = combineReducers({
   movie: movieReducer,
   search: searchReducer,
@@ -24,6 +25,7 @@ export const rootReducer = combineReducers({
   discover: discoverReducer,
   show: showReducer,
   genre: genreReducer,
+  favorite: favoriteReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
