@@ -10,6 +10,7 @@ import {
 import { fetchShows } from "../../modules/show/actions.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
 import { Year, Genre, Sort } from "../Discover/Discover.styles.ts";
 import {
   yearList,
@@ -78,9 +79,11 @@ export const Shows = () => {
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
       <h2>TV Shows</h2>
-      <span>
-        {totalResults && !Array.isArray(totalResults) ? totalResults : 0} Movies
-      </span>
+      {totalResults !== undefined && !Array.isArray(totalResults) ? (
+        <TotalResult totalResults={totalResults} type="show" />
+      ) : (
+        ""
+      )}
       <Box
         sx={{
           display: "flex",

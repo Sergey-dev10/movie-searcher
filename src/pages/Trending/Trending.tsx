@@ -9,6 +9,7 @@ import {
 } from "../../modules/trending/selectors.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
 export const Trending = () => {
   const dispatch = useAppDispatch();
   const trendingMovies = useAppSelector(selectTrendingMovies);
@@ -30,7 +31,7 @@ export const Trending = () => {
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
       <h2>Trending Movies</h2>
-      {totalResults ? <span>{totalResults} Movies</span> : ""}
+      {totalResults ? <TotalResult totalResults={totalResults} type="movie"/> : ""}
       <Movies movies={trendingMovies} />
       <Pagination
         page={page}

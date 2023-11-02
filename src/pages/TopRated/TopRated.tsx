@@ -9,6 +9,7 @@ import {
 } from "../../modules/movie/selectors.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
 export const TopRated = () => {
   const dispatch = useAppDispatch();
   const topRatedMovies = useAppSelector(selectTopRatedMovies);
@@ -30,7 +31,7 @@ export const TopRated = () => {
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
       <h2>Top Rated Movies</h2>
-      {totalResults ? <span>{totalResults} Movies</span> : ""}
+      {totalResults ? <TotalResult totalResults={totalResults} type="movie"/> : ""}
       <Movies movies={topRatedMovies} />
       <Pagination
         page={page}

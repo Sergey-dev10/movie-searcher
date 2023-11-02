@@ -59,7 +59,7 @@ export const SearchResult = () => {
   return (
     <div>
       <h1>Search Result</h1>
-      <TotalResult totalResults={totalResults} />
+      <TotalResult totalResults={totalResults} type="search"/>
       <Box sx={{ width: "100%", typography: "body1" }}>
         <TabContext value={value}>
           <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

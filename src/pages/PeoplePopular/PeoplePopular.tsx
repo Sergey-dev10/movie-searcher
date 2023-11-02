@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import { fetchPeople } from "../../modules/people/actions";
 import { People } from "../../ui/People";
 import { Pagination } from "../../ui/Pagination";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
 import {
   selectPeople,
   selectTotalPages,
@@ -32,7 +33,7 @@ export const PeoplePopular = () => {
   return (
     <div>
       <h1>Popular People</h1>
-      {totalResults ? <span>{totalResults} Movies</span> : ""}
+      {totalResults ? <TotalResult totalResults={totalResults} type="people"/> : ""}
       <People people={people} />
       <Pagination
         page={page}

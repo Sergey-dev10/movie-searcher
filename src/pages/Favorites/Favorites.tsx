@@ -3,6 +3,7 @@ import { useAppDispatch, useAppSelector } from "../../hooks";
 import Box from "@mui/material/Box";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
+import {TotalResult} from "../../ui/TotalResult/TotalResult.tsx";
 import {selectFavorites} from "../../modules/favorite/selectors.ts";
 export const Favorites = () => {
     const favorites = useAppSelector(selectFavorites);
@@ -25,7 +26,7 @@ export const Favorites = () => {
     return (
         <Box sx={{ mb: 10, flexGrow: 1 }}>
             <h2>My Favorite Movies</h2>
-            {totalResults ? <span>{totalResults} Movies</span> : ""}
+            <TotalResult totalResults={totalResults} type="movie"/>
             <Movies movies={displayedFavorites} />
             <Pagination
                 page={page}

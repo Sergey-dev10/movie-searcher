@@ -5,12 +5,21 @@ import { TotalResultsWrapper } from "./TotalResults.styles.ts";
 
 interface TotalResultProps {
   totalResults: number;
+  type: string;
 }
-export const TotalResult = ({ totalResults }: TotalResultProps) => {
+export const TotalResult = ({ totalResults, type }: TotalResultProps) => {
   const query = useAppSelector(selectSearchQuery);
   return (
     <TotalResultsWrapper>
-      {formatNumberWithCommas(totalResults)} total result with keyword: {query}
+      {type === "search"
+        ? `${formatNumberWithCommas(
+            totalResults,
+          )} total result with keyword: ${query}`
+        : type === "movie"
+        ? `${formatNumberWithCommas(totalResults)} Movies`
+        : type === "people"
+        ? `${formatNumberWithCommas(totalResults)} People`
+        : `${formatNumberWithCommas(totalResults)} TV Shows`}
     </TotalResultsWrapper>
   );
 };

@@ -10,6 +10,7 @@ import {
 import { fetchDiscoveredMovies } from "../../modules/discover/actions.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
+import {TotalResult} from "../../ui/TotalResult/TotalResult.tsx";
 import { Year, Genre, Sort } from "./Discover.styles.ts";
 import { yearList, genres, sortMethods } from "../../constants/filterConstants.ts";
 
@@ -75,7 +76,11 @@ export const Discover = () => {
   return (
     <Box sx={{ mb: 10, flexGrow: 1 }}>
       <h2>Discover Movies</h2>
-       <span>{totalResults && !Array.isArray(totalResults) ? totalResults : 0} Movies</span>
+      {totalResults !== undefined && !Array.isArray(totalResults) ? (
+        <TotalResult totalResults={totalResults} type="movie" />
+      ) : (
+        ""
+      )}
       <Box
         sx={{
           display: "flex",
