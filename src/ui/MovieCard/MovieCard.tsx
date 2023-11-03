@@ -41,7 +41,6 @@ export const MovieCard = ({
   const isFavorite = favorites.find((item) => item.id === id);
 
   const handleFavoriteClick = () => {
-    console.log("handleFavoriteClick");
     const favoriteItem: FavoriteItem = {
       id,
       name: name,

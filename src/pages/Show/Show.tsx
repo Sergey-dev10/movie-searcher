@@ -16,17 +16,39 @@ import {
 import { POSTER_IMG_URL } from "../../constants/baseURL.ts";
 import { releaseDateToYear } from "../../utils/releaseDateToYear.ts";
 import { ratingToFloat } from "../../utils/ratingToFloat.ts";
+import { selectFavorites } from "../../modules/favorite/selectors.ts";
+import { addFavorite, removeFavorite } from "../../modules/favorite/slice.ts";
+import { FavoriteItem } from "../../modules/favorite/types.ts";
 
 export const Show = () => {
   const dispatch = useAppDispatch();
   const show = useAppSelector(selectShow);
   const match = useMatch("/show/:id");
-  const title = show ? show.name : "";
+  const id = show ? show.id : 0;
+  const name = show ? show.name : "";
   const posterPath = show ? show.poster_path : "";
   const overview = show ? show.overview : "";
   const voteAverage = show ? show.vote_average : 0;
-  const releaseDate = show ? releaseDateToYear(show.first_air_date) : "";
+  const firstAirDate = show ? releaseDateToYear(show.first_air_date) : "";
   const genres = show ? show.genres : [];
+  const favorites = useAppSelector(selectFavorites);
+  const isFavorite = favorites.find((item) => item.id === show?.id);
+
+  const handleFavoriteClick = () => {
+    const favoriteItem: FavoriteItem = {
+      id,
+      name,
+      poster_path: posterPath,
+      first_air_date: firstAirDate,
+      vote_average: voteAverage,
+    };
+
+    if (isFavorite) {
+      dispatch(removeFavorite(id));
+    } else {
+      dispatch(addFavorite(favoriteItem));
+    }
+  };
 
   useEffect(() => {
     dispatch(fetchShow(Number(match?.params.id)));
@@ -45,7 +67,7 @@ export const Show = () => {
     >
       <Poster src={`${POSTER_IMG_URL}/${posterPath}`} />
       <MovieDetails>
-        <MovieTitle>{`${title} (${releaseDate})`}</MovieTitle>
+        <MovieTitle>{`${name} (${firstAirDate})`}</MovieTitle>
         <MovieRating>
           <StarRateIcon sx={{ color: "yellow" }} />
           {`${ratingToFloat(voteAverage)} Rating`}
@@ -66,7 +88,9 @@ export const Show = () => {
         ) : (
           ""
         )}
-        <Button variant="outlined">Favorite</Button>
+        <Button variant="outlined" onClick={handleFavoriteClick}>
+          Favorite
+        </Button>
       </MovieDetails>
     </Box>
   );
