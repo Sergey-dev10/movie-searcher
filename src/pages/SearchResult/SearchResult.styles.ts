@@ -15,3 +15,15 @@ export const TabListWrapper = styled(TabList)`
   padding-left: 1rem;
   border-bottom: 1px solid #1b1e24;
 `;
+
+export const NoResult = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 1.5rem;
+  font-size: 1.5rem;
+  color: #cacaca;
+`;
+
+
+

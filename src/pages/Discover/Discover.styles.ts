@@ -18,7 +18,7 @@ export const Genre = styled(Autocomplete)`
 `;
 
 export const Sort = styled(Autocomplete)`
-  width: 17rem;
+  width: 13rem;
   margin-bottom: 0.5rem;
   background-color: #0086e0;
   border-radius: 0.25rem;
