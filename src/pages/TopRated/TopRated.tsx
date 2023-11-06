@@ -17,7 +17,6 @@ export const TopRated = () => {
   const totalResults = useAppSelector(selectTopRatedMoviesTotalResults);
   const [page, setPage] = useState(1);
 
-  console.log(topRatedMovies);
   const handleChangePage = (
     event: React.ChangeEvent<unknown>,
     value: number,

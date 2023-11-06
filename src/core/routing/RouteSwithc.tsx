@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
         element: <Favorites />,
       },
       {
-        path: "top_rated",
+        path: "top-rated",
         element: <TopRated />,
       },
       {
