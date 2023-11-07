@@ -10,9 +10,13 @@ import {
 import { fetchDiscoveredMovies } from "../../modules/discover/actions.ts";
 import { Movies } from "../../ui/Movies";
 import { Pagination } from "../../ui/Pagination";
-import {TotalResult} from "../../ui/TotalResult/TotalResult.tsx";
+import { TotalResult } from "../../ui/TotalResult/TotalResult.tsx";
 import { Year, Genre, Sort } from "./Discover.styles.ts";
-import { yearList, genres, sortMethods } from "../../constants/filterConstants.ts";
+import {
+  yearList,
+  genres,
+  sortMethods,
+} from "../../constants/filterConstants.ts";
 
 export const Discover = () => {
   const dispatch = useAppDispatch();
@@ -24,17 +28,16 @@ export const Discover = () => {
   const [genre, setGenre] = useState(0);
   const [sortBy, setSortBy] = useState("");
 
-
   const handleChangePage = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.SyntheticEvent<unknown>,
     value: number,
   ) => {
     setPage(value);
   };
 
   const handleChangeYear = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: number },
+    _event: React.SyntheticEvent,
+    value: { label: string; value: number } | null,
   ) => {
     if (value === null) {
       setYear(0);
@@ -44,8 +47,8 @@ export const Discover = () => {
   };
 
   const handleChangeGenre = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: number },
+    _event: React.SyntheticEvent,
+    value: { label: string; value: number } | null,
   ) => {
     if (value === null) {
       setGenre(0);
@@ -55,8 +58,8 @@ export const Discover = () => {
   };
 
   const handleChangeSortBy = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: string },
+    _event: React.SyntheticEvent,
+    value: { label: string; value: string } | null,
   ) => {
     if (value === null) {
       setSortBy("");

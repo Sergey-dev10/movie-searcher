@@ -27,7 +27,7 @@ export const Header = () => {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <SvgIcon fontSize="large">
-            <Link to={"/"}>
+            <Link to={"/movie-searcher"}>
               <Logo />
             </Link>
           </SvgIcon>

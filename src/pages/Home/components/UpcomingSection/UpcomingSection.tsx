@@ -30,7 +30,7 @@ export const UpcomingSection = () => {
           : ""}
       </Grid>
       <Box sx={{ mt: 5, textAlign: "center" }}>
-        <Button variant="contained" href="upcoming">
+        <Button variant="contained" href="/movie-searcher/upcoming">
           View All Upcoming Movies
         </Button>
       </Box>

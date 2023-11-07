@@ -28,17 +28,14 @@ export const Shows = () => {
   const [genre, setGenre] = useState(0);
   const [sortBy, setSortBy] = useState("");
 
-  const handleChangePage = (
-    event: React.ChangeEvent<unknown>,
-    value: number,
-  ) => {
+  const handleChangePage = (_: any, value: number) => {
     setPage(value);
   };
 
   const handleChangeYear = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: number },
-  ) => {
+    _event: React.SyntheticEvent,
+    value: { label: string; value: number } | null,
+  ): void => {
     if (value === null) {
       setYear(0);
       return;
@@ -47,8 +44,8 @@ export const Shows = () => {
   };
 
   const handleChangeGenre = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: number },
+    _event: React.SyntheticEvent,
+    value: { label: string; value: number } | null,
   ) => {
     if (value === null) {
       setGenre(0);
@@ -58,8 +55,8 @@ export const Shows = () => {
   };
 
   const handleChangeSortBy = (
-    event: React.SyntheticEvent<HTMLInputElement>,
-    value: { label: string; value: string },
+    _event: React.SyntheticEvent,
+    value: { label: string; value: string } | null,
   ) => {
     if (value === null) {
       setSortBy("");

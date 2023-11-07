@@ -10,7 +10,7 @@ export const DesktopHeader = () => {
           key={nanoid()}
           sx={{ my: 2, color: "white", display: "block" }}
           component={Link}
-          to={"/"}
+          to={"/movie-searcher"}
         >
           Home
         </ButtonWrapper>

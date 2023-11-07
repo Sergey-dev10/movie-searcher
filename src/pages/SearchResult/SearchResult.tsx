@@ -5,12 +5,7 @@ import TabPanel from "@mui/lab/TabPanel";
 import Box from "@mui/material/Box";
 import { useTheme } from "@mui/material/styles";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import {
-  TabWrapper,
-  TabListWrapper,
-  NoResult,
-  NoResultIcon,
-} from "./SearchResult.styles.ts";
+import { TabWrapper, TabListWrapper, NoResult } from "./SearchResult.styles.ts";
 import {
   selectSearchQuery,
   selectSearchedMovies,
@@ -56,12 +51,12 @@ export const SearchResult = () => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const handleChangePage = (
-    event: React.ChangeEvent<unknown>,
+    _event: React.ChangeEvent<unknown>,
     value: number,
   ) => {
     setPage(value);
   };
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 

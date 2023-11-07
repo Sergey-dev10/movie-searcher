@@ -23,7 +23,7 @@ import { FavoriteItem } from "../../modules/favorite/types.ts";
 export const Show = () => {
   const dispatch = useAppDispatch();
   const show = useAppSelector(selectShow);
-  const match = useMatch("/show/:id");
+  const match = useMatch("/movie-searcher/show/:id");
   const id = show ? show.id : 0;
   const name = show ? show.name : "";
   const posterPath = show ? show.poster_path : "";

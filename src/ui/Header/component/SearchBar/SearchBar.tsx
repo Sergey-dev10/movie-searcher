@@ -30,7 +30,7 @@ export const SearchBar = () => {
         dispatch(searchMovies(query));
         setQuery("");
         setShowClearIcon("none");
-        navigate(`/search/${query}`);
+        navigate(`/movie-searcher/search/${query}`);
     }
 
   return (

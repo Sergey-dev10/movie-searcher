@@ -23,7 +23,7 @@ import { addFavorite, removeFavorite } from "../../modules/favorite/slice.ts";
 export const Movie = () => {
   const dispatch = useAppDispatch();
   const movie = useAppSelector(selectMovie);
-  const match = useMatch("/movie/:id");
+  const match = useMatch("/movie-searcher/movie/:id");
   const id = movie ? movie.id : 0;
   const title = movie ? movie.title : "";
   const posterPath = movie ? movie.poster_path : "";

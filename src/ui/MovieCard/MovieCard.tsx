@@ -62,7 +62,7 @@ export const MovieCard = ({
     <CardWrapper>
       <CardActionArea
         component={Link}
-        to={release_date ? `/movie/${id}` : `/show/${id}`}
+        to={release_date ? `/movie-searcher/movie/${id}` : `/movie-searcher/show/${id}`}
       >
         <Rating rating={ratingToFloat(vote_average)} />
         <Poster component="img" image={`${MOVIE_POSTER_URL}${poster_path}`} />

@@ -30,7 +30,7 @@ export const TopRatedSection = () => {
           : ""}
       </Grid>
       <Box sx={{ mt: 5, textAlign: "center" }}>
-        <Button variant="contained" href="top-rated">
+        <Button variant="contained" href="/movie-searcher/top-rated">
           View All Top Rated Movies
         </Button>
       </Box>
