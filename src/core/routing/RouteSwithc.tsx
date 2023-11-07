@@ -16,7 +16,7 @@ import {Genre} from "../../pages/Genre/";
 
 export const router = createBrowserRouter([
   {
-    path: "/movie-searcher",
+    path: "movie-searcher",
     element: <Layout />,
     children: [
       {

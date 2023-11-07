@@ -56,7 +56,7 @@ export const MobileHeader = ({
         <MobileMenuItem
           key={nanoid()}
           component={Link}
-          to={"/"}
+          to={"/movie-searcher"}
           onClick={onHandleClose}
         >
           <Typography>Home</Typography>
