@@ -6,6 +6,7 @@ import { MovieCard } from "../../../../ui/MovieCard";
 import { selectUpcomingMovies } from "../../../../modules/movie/selectors.ts";
 import { nanoid } from "@reduxjs/toolkit";
 import Button from "@mui/material/Button";
+import { Link } from "react-router-dom";
 export const UpcomingSection = () => {
   const upcomingMovies = useAppSelector(selectUpcomingMovies);
 
@@ -30,7 +31,7 @@ export const UpcomingSection = () => {
           : ""}
       </Grid>
       <Box sx={{ mt: 5, textAlign: "center" }}>
-        <Button variant="contained" href="/movie-searcher/upcoming">
+        <Button variant="contained" component={Link} to={"upcoming"}>
           View All Upcoming Movies
         </Button>
       </Box>

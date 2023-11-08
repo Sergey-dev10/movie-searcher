@@ -6,6 +6,7 @@ import { Movie } from "../../../../modules/movie/types.ts";
 import { MovieCard } from "../../../../ui/MovieCard";
 import { selectTopRatedMovies } from "../../../../modules/movie/selectors.ts";
 import { nanoid } from "@reduxjs/toolkit";
+import { Link } from "react-router-dom";
 export const TopRatedSection = () => {
   const topRatedMovies = useAppSelector(selectTopRatedMovies);
 
@@ -30,7 +31,7 @@ export const TopRatedSection = () => {
           : ""}
       </Grid>
       <Box sx={{ mt: 5, textAlign: "center" }}>
-        <Button variant="contained" href="/movie-searcher/top-rated">
+        <Button variant="contained" component={Link} to={"top-rated"}>
           View All Top Rated Movies
         </Button>
       </Box>
